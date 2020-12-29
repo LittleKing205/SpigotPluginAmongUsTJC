@@ -9,6 +9,12 @@ Zur zeit wird nur das Chatsystem verändert.
   - Während der Runde ist der Chat gesperrt.
   - Im Meeting, können alle überlebenen miteinander schreiben.
   - Geister können die ganze zeit untereinander schreiben.
+  
+# Ingame Befehle
+
+| Befehl | Permission | Beschreibung |
+| ------ | ------ | ------ |
+| reset | amongus.reset | Startet den Reset der Welt (Rotes Glas in der Lobby) |
 
 # Installation
 
@@ -26,7 +32,7 @@ messages:
 ```
  
 # TODO:
-  - Command wir das resetten der Map (Rotes Glas Am anfang der Map) hinzufügen.
+  - ~~Command für das resetten der Map (Rotes Glas Am anfang der Map) hinzufügen.~~
   - Chunkloader hinzufügen.
   - Commands für die Einstellungen hinzufügen.
   - Eure Ideen
