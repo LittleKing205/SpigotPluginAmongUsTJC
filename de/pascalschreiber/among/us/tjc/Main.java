@@ -7,6 +7,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		createDefaults();
+		getCommand("reset").setExecutor(new ResetCommand());
 		getServer().getPluginManager().registerEvents(new ChatListener(this), this);
 	}
 	
