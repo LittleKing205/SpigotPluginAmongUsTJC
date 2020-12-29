@@ -1,0 +1,8 @@
+main: de.pascalschreiber.among.us.tjc.Main
+name: AmongUsTjcPlugin
+version: '0.1'
+description: Dies ist ein kleines Addon zur Among Us Welt von TheJoCraft, Blizzor und RGB Pixel
+load: POSTWORLD
+author: Pascal Schreiber
+website: pascalschreiber.de
+api-version: 1.16
