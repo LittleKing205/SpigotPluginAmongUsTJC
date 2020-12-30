@@ -35,6 +35,7 @@ messages:
   - ~~Command für das resetten der Map (Rotes Glas Am anfang der Map) hinzufügen.~~
   - Chunkloader hinzufügen.
   - Commands für die Einstellungen hinzufügen.
-  - Eure Ideen
+  - Command für das setzen einer Farbe
+  - _Eure Ideen_
   
 Falls Fehler auftauchen sollten, bitte ein Ticket öffnen oder gern mithelfen ;) Pull requests sind gern erwünscht.
