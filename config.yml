@@ -1,0 +1,36 @@
+############################################################
+# Chunkloader Settings
+# Please concider, this feature is still in Beta
+#############################################################
+chunkloader:
+  world: world
+  enabled: false
+
+#############################################################
+# please do not change the order.
+# If you change the order, the wrong colors may be assigned.
+#############################################################
+player-colors:
+  - white
+  - orange
+  - magentha
+  - light_blue
+  - yellow
+  - green
+  - pink
+  - black
+  - red
+  - blue
+
+#############################################################
+# All Messages tht returns to the Player
+#############################################################
+messages:
+  chat-only-in-meeting: Chatting and speaking is only permitted in a meeting during a round.
+  color:
+    already-assigned: You already have the color.
+    no-params: No parameter was given.
+    wrong-params: A wrong Parameter was given.
+    color-changed: Your color was successful changed.
+    color-not-changed: Your color is already taken.
+    not-in-hub: To change your color, you must be in the Hub.

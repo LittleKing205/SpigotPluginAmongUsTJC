@@ -11,3 +11,7 @@ commands:
       description: Resetet die Map.
       usage: /<command>
       permission: amongus.reset
+   color:
+      description: Setzt eine Spielerfarbe
+      usage: /<command> [color]
+      permission: amongus.set-color
