@@ -1,5 +1,6 @@
 package de.pascalschreiber.among.us.tjc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
@@ -22,8 +23,19 @@ public class ChangeColorCommand implements CommandExecutor, TabCompleter {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-		
-		return null;
+		if (args.length == 1) {
+			if (args[0].length() == 0) {
+				return plugin.getConfig().getStringList("player-colors");
+			} else {
+				List<String> list = new ArrayList<>();
+				for (String color : plugin.getConfig().getStringList("player-colors")) {
+					if (color.startsWith(args[0]))
+						list.add(color);
+				}
+				return list;
+			}
+		}
+		return new ArrayList<>();
 	}
 
 	@Override
