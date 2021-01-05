@@ -38,7 +38,7 @@ public class ChatListener implements Listener {
 			if (meeting) {
 				meetingChat(player, event.getMessage());
 			} else {
-				player.sendMessage(ChatColor.GREEN + "[SERVER] " + ChatColor.RED + plugin.getConfig().getString("messages.chat-only-in-meeting"));
+				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.chat-only-in-meeting"));
 			}
 		}
 	}

@@ -23,6 +23,8 @@ public class ChangeColorCommand implements CommandExecutor, TabCompleter {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+		if (!(sender instanceof Player))
+			return new ArrayList<>();
 		if (args.length == 1) {
 			if (args[0].length() == 0) {
 				return plugin.getConfig().getStringList("player-colors");
@@ -51,26 +53,26 @@ public class ChangeColorCommand implements CommandExecutor, TabCompleter {
 			if (args.length == 1) {
 				int colorInt = plugin.getConfig().getStringList("player-colors").indexOf(args[0].toLowerCase()) + 1;
 				if (colorInt == score.getScore()) {
-					player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.WHITE + plugin.getConfig().getString("messages.color.already-assigned"));
+					player.sendMessage(Chat.MESSAGE + plugin.getConfig().getString("messages.color.already-assigned"));
 					return true;
 				}
 				if (colorInt > 0) {
 					if (isColorFree(player, colorInt)) {
 						score.setScore(colorInt);
-						player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.GREEN + plugin.getConfig().getString("messages.color.color-changed"));
+						player.sendMessage(Chat.SUCESS + plugin.getConfig().getString("messages.color.color-changed"));
 					} else {
-						player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.WHITE + plugin.getConfig().getString("messages.color.color-not-changed"));
+						player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.color-not-changed"));
 					}
 				} else {
-					player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.RED + plugin.getConfig().getString("messages.color.wrong-params"));
-					player.sendMessage(ChatColor.YELLOW + "/color {" + getColorList() + "}");
+					player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.wrong-params"));
+					player.sendMessage(Chat.COMMAND + "/color {" + getColorList() + "}");
 				}
 			} else {
-				player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.RED + plugin.getConfig().getString("messages.color.no-params"));
-				player.sendMessage(ChatColor.YELLOW + "/color {" + getColorList() + "}");
+				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.no-params"));
+				player.sendMessage(Chat.COMMAND + "/color {" + getColorList() + "}");
 			}
 		} else {
-			player.sendMessage(ChatColor.AQUA + "[AmongUs] " + ChatColor.RED + plugin.getConfig().getString("messages.color.not-in-hub"));
+			player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.not-in-hub"));
 		}
 		return true;
 	}

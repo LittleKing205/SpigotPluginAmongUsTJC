@@ -8,8 +8,9 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		createDefaults();
 		
-		getCommand("reset").setExecutor(new ResetCommand());
+		getCommand("reset").setExecutor(new ResetCommand(this));
 		getCommand("color").setExecutor(new ChangeColorCommand(this));
+		getCommand("settings").setExecutor(new SettingsCommand(this));
 		
 		getServer().getPluginManager().registerEvents(new ChatListener(this), this);
 		
