@@ -24,21 +24,24 @@ public class ChatListener implements Listener {
 		Player player = event.getPlayer();
 		Scoreboard scoreboard = player.getScoreboard();
 		Team team = scoreboard.getEntryTeam(player.getDisplayName());
-		boolean meeting = (scoreboard.getObjective("data").getScore("#meeting").getScore() == 1);
+		boolean isMeeting = (scoreboard.getObjective("data").getScore("#meeting").getScore() == 1);
+		boolean isGameRunning = (scoreboard.getObjective("data").getScore("#gameon").getScore() == 1);
 		Score playerScore = scoreboard.getObjective("player").getScore(player.getDisplayName());
-		if (team == null) {
+		if (isGameRunning) {
+			if (team != null && team.getName().equals("ghost")) {
+				ghostChat(player, event.getMessage());
+			} else if (isMeeting) {
+				meetingChat(player, event.getMessage());
+			} else if (team == null) {
+				lobbyChat(player, event.getMessage());
+			} else {
+				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.chat-only-in-meeting"));
+			}
+		} else {
 			if (playerScore.isScoreSet()) {
 				hubChat(player, event.getMessage());
 			} else {
 				lobbyChat(player, event.getMessage());
-			}
-		} else if (team.getName().equals("ghost")) {
-			ghostChat(player, event.getMessage());
-		} else {
-			if (meeting) {
-				meetingChat(player, event.getMessage());
-			} else {
-				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.chat-only-in-meeting"));
 			}
 		}
 	}
@@ -50,9 +53,10 @@ public class ChatListener implements Listener {
 	 */
 	private void hubChat(Player fromPlayer, String msg) {
 		Objective playerObj = fromPlayer.getScoreboard().getObjective("player");
+		boolean isGameRunning = (fromPlayer.getScoreboard().getObjective("data").getScore("#gameon").getScore() == 1);
+		Team team = fromPlayer.getScoreboard().getEntryTeam(fromPlayer.getDisplayName());
 		for(Player p : plugin.getServer().getOnlinePlayers()) {
-			Team team = fromPlayer.getScoreboard().getEntryTeam(fromPlayer.getDisplayName());
-			if (team == null && playerObj.getScore(p.getDisplayName()).isScoreSet()) {
+			if (team == null && playerObj.getScore(p.getDisplayName()).isScoreSet() && isGameRunning == false) {
 				p.sendMessage(formatMessage(fromPlayer, msg, "HUB", ChatColor.YELLOW));
 			}
 		}
