@@ -100,12 +100,12 @@ public class SettingsCommand implements CommandExecutor, TabCompleter {
 	}
 	
 	private void updateSettingsDisplay(Player player) {
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 20, 54, -21)).setType(Material.REDSTONE_BLOCK);
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 21, 54, -21)).setType(Material.REDSTONE_BLOCK);
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 22, 54, -21)).setType(Material.REDSTONE_BLOCK);
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 23, 54, -21)).setType(Material.REDSTONE_BLOCK);
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 24, 54, -21)).setType(Material.REDSTONE_BLOCK);
-		Bukkit.getWorld("world").getBlockAt(new Location(player.getLocation().getWorld(), 18, 54, -21)).setType(Material.AIR);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 20, 54, -21)).setType(Material.REDSTONE_BLOCK);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 21, 54, -21)).setType(Material.REDSTONE_BLOCK);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 22, 54, -21)).setType(Material.REDSTONE_BLOCK);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 23, 54, -21)).setType(Material.REDSTONE_BLOCK);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 24, 54, -21)).setType(Material.REDSTONE_BLOCK);
+		player.getWorld().getBlockAt(new Location(player.getLocation().getWorld(), 18, 54, -21)).setType(Material.AIR);
 	}
 	
 	private void setSetting(Player player, String setting, int value, int min, int max, int x, int y, int z) {
