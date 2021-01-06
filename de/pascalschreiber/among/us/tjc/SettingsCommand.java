@@ -6,8 +6,6 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -113,10 +111,6 @@ public class SettingsCommand implements CommandExecutor, TabCompleter {
 	private void setSetting(Player player, String setting, int value, int min, int max, int x, int y, int z) {
 		if (value >= min && value <= max) {
 			player.getScoreboard().getObjective("settings").getScore(setting).setScore(value);
-			Location loc = new Location(player.getLocation().getWorld(), x, y, z);
-			Block block = loc.getBlock();
-			System.out.println(block.getType().name());
-			//block.setCommand("scoreboard players set \" + setting + \" settings \" + value");
 			updateSettingsDisplay(player);
 		} else {
 			player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.settings.value-must-between")
