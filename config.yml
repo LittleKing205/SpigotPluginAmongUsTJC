@@ -23,10 +23,13 @@ player-colors:
   - blue
 
 #############################################################
-# All Messages tht returns to the Player
+# All Messages that returns to the Player
 #############################################################
 messages:
-  chat-only-in-meeting: Chatting and speaking is only permitted in a meeting during a round.
+  general:
+    game-is-running: The game is already running.
+  chat:
+    only-in-meeting: Chatting and speaking is only permitted in a meeting during a round.
   color:
     already-assigned: You already have the color.
     no-params: No parameter was given.
@@ -34,3 +37,9 @@ messages:
     color-changed: Your color was successful changed.
     color-not-changed: Your color is already taken.
     not-in-hub: To change your color, you must be in the Hub.
+  settings:
+    wrong-setting: The Setting %name% was not found.
+    wrong-parameter-length: Es wurden zu viele oder zu wenige Parameter eingegeben.
+    value-must-be-a-umber: The value must be a Number.
+    value-must-between: The value for Setting %name% must be between %min% - %max%
+    not-in-hub: To change a Setting, you must be in the Hub.

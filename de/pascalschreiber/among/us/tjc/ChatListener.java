@@ -35,7 +35,7 @@ public class ChatListener implements Listener {
 			} else if (team == null) {
 				lobbyChat(player, event.getMessage());
 			} else {
-				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.chat-only-in-meeting"));
+				player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.chat.only-in-meeting"));
 			}
 		} else {
 			if (playerScore.isScoreSet()) {

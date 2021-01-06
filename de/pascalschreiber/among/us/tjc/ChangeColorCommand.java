@@ -61,7 +61,7 @@ public class ChangeColorCommand implements CommandExecutor, TabCompleter {
 						score.setScore(colorInt);
 						player.sendMessage(Chat.SUCESS + plugin.getConfig().getString("messages.color.color-changed"));
 					} else {
-						player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.color-not-changed"));
+						player.sendMessage(Chat.MESSAGE + plugin.getConfig().getString("messages.color.color-not-changed"));
 					}
 				} else {
 					player.sendMessage(Chat.ERROR + plugin.getConfig().getString("messages.color.wrong-params"));
